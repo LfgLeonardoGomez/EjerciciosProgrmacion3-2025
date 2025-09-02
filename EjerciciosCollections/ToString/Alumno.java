@@ -1,3 +1,4 @@
+package ToString;
 public class Alumno {
     private String nombre;
     private double nota;

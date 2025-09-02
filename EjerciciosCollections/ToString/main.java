@@ -1,3 +1,4 @@
+package ToString;
 
 import java.util.ArrayList;
 public class main {
@@ -19,5 +20,9 @@ public static void main(String[] args) {
     for (Alumno alumno : listaAlumnos) {
         System.out.println(alumno);
     }
+
+    // EJECUTAR DESDE MAIN.JAVA CON RUN JAVA, NO RUN CODE
+
+
 }
 }
