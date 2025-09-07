@@ -2,7 +2,7 @@ package ToString;
 
 import java.util.ArrayList;
 public class main {
-public static void main(String[] args) {
+public static void main (String[] args) {
     Alumno juan = new Alumno("Juan", 8.5);
     Alumno maria = new Alumno("Maria", 9.0);
     Alumno pedro = new Alumno("Pedro", 7.5);

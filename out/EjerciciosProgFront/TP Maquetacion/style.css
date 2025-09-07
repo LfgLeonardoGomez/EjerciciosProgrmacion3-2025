@@ -1,0 +1,96 @@
+/* === Reset y básicos === */
+* {
+box-sizing: border-box;
+margin: 0;
+padding: 0;
+}
+body {
+font-family: system-ui, -apple-system;
+line-height: 1.5;
+color: #0f172a;
+background: #f6f7f8;
+}
+/* === Variables === */
+:root {
+--bg: #f8fafc;
+--panel: #fff;
+--text: #0f172a;
+--muted: #64748b;
+--primary: #2563eb;
+--primary-600: #1d4ed8;
+--primary-700: #1e40af;
+--accent: #16a34a;
+--danger: #dc2626;
+--radius: 14px;
+--shadow: 0 6px 24px rgba(15, 23, 42, 0.08);
+--container: 1100px;
+--space-1: 4px;
+--space-2: 8px;
+--space-3: 12px;
+--space-4: 16px;
+--space-5: 20px;
+--space-6: 24px;
+--space-8: 32px;
+--space-10: 40px;
+--space-12: 48px;
+}
+/*Contenedor header*/
+.header {
+position:fixed;
+width: 100%;
+display: flex;
+align-items: center;
+justify-content: center;
+background-color: white;
+box-shadow: var(--shadow);
+position:fixed;
+}
+
+.container {
+width: 80%;
+height: 50px;
+display: flex;
+align-items: center;
+justify-content: space-between;
+}
+
+.titulo {
+    font-weight: 500 ;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 5px;
+}
+.menu {
+    display: flex;
+
+}
+
+.iconoM {
+    width: 36px;
+    height: 36px;
+    color: white;
+    font-weight: bold;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #2a599b;
+background: linear-gradient(139deg, rgba(42, 89, 155, 1) 24%, rgba(63, 158, 66, 1) 73%);
+}
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 10px;
+}
+/* === main === */
+main {
+    display:inline-block;
+width: 100%;
+padding: 100px 20px 20px 20px;
+}
+section {
+    background-color: white;
+}
+
