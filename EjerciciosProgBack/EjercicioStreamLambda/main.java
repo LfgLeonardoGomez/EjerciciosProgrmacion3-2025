@@ -43,6 +43,7 @@ public class main {
     .map(a -> " Nombre: " + a.getNombre()+ " Precio: " + a.getPrecio() )
     .collect(Collectors.joining(";")); 
     ;
+    
     System.out.println(resultado);
     }
 }

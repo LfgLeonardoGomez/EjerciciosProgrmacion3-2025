@@ -19,3 +19,26 @@ db.pedidos.find({ ciudad: "Madrid" })
 db.pedidos.find({ monto: { $gt: 300 } }) 
 
 db.pedidos.find({ ciudad: "Madrid", monto: { $gt: 300 } }) 
+db.pedidos.createIndex({"ciudad":1})
+
+db.pedidos.find({ monto: { $gt: 300 },ciudad: "madrid" }).explain("executionStats")
+db.pedidos.find({ ciudad: "Madrid", monto: { $gt: 300 } }).explain("executionStats")
+
+
+
+[{$match: "producto" : " "},
+ {$group: _id:"cliente", {total: $sum: total}},
+ {$sort: {totalGastado: -1 }}
+]
+
+
+[{
+  $group:{
+    _id:{
+      categoria: "categoria"
+    },
+    {
+
+    }
+  }
+}]

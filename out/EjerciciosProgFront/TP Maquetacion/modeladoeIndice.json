@@ -142,10 +142,20 @@
         "tratamiento1",
         "tratamiento2",
         ... ...
-    ]
+    ],
     "estudios":[
         "estudio1",
         "estudio2",
         ... ...
     ]   
+}
+//diagnosticos
+{
+    "nombre":"",
+    "pacientes":[
+        "id_paciente1",
+        "id_paciente2",
+        "id_paciente3",
+        ... ...
+    ]
 }

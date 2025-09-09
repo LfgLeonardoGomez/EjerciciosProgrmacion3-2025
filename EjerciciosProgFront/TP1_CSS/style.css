@@ -1,0 +1,81 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:root{
+    --color-fondo: #6e0404;
+    --color-texto: white;
+    --color-borde: rgb(128, 4, 4);
+    --color-sombra: box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+p {
+    color: blue;
+    font-size: 20px;
+    font-family: Arial, sans-serif;
+}
+#id_parrafo {
+    color: red;
+    font-weight: bold;
+}
+.parrafo {
+    color: green;
+    text-decoration: underline;
+}
+.titulo {
+    padding: 10px;
+    margin: 10px;
+    text-shadow: 2px 2px 5px gray;
+    font-size: 30px;
+    text-transform: uppercase;
+
+}
+.p2 {
+    line-height: 35px;
+    letter-spacing: 5px;
+}
+blockquote {
+    font-style: italic;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+div {
+    
+    width: 280px;
+    height: 120px;
+    border: 2px solid rgb(81, 97, 245);
+    padding: 10px;
+    margin: 10px;
+    background-color: rgb(179, 230, 243);
+    border-radius: 8%;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
+    
+}
+#tituloTarjeta {
+    margin: 10px;
+
+}
+#spanTarjeta {
+    padding: 20px;
+}
+.divBlock {
+    display: block;
+}
+.divInline {
+    display: inline;
+}
+.inlineBlock {
+    display: inline-block;
+    margin: 20px;
+}
+.btnNone{
+    display: none;
+}
+.btnVisibility {
+    visibility: hidden;
+}
+.variables {
+    background-color: var(--color-fondo);
+    border-color: var(--color-borde);
+    color: var(--color-texto)
+}
