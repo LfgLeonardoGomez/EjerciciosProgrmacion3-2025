@@ -34,16 +34,27 @@ background: #f6f7f8;
 --space-10: 40px;
 --space-12: 48px;
 }
+
+
+/* Contenedor principal que limita el ancho */
+.wrapper {
+  max-width: var(--container);
+  margin: 0 auto;      
+  padding: 0 20px;     /* espacio lateral */
+}
+
+
 /*Contenedor header*/
 .header {
 position:fixed;
-width: 100%;
+width: 80%;
 display: flex;
 align-items: center;
 justify-content: center;
 background-color: white;
 box-shadow: var(--shadow);
 position:fixed;
+z-index: 1000;
 }
 
 .container {
@@ -86,11 +97,142 @@ nav ul {
 }
 /* === main === */
 main {
-    display:inline-block;
-width: 100%;
-padding: 100px 20px 20px 20px;
-}
-section {
-    background-color: white;
+    
+    display: grid;
+    grid-template-columns: 1.8fr 1fr; 
+    grid-template-rows: repeat(4, auto); 
+    gap: 5px;
+    padding: 50px;
+
+
 }
 
+.section {
+    
+    background: var(--panel);
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    margin: 10px;
+}
+
+.section:nth-child(1) {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+
+.section:nth-child(2) {
+    grid-column: 2;
+    grid-row: 1 / 5;
+   
+}
+
+.botones {
+    display:flex;
+    justify-content: center;
+    flex-wrap:wrap;
+}
+
+button {
+    background-color: var(--primary);
+    display: flex;
+    color:aliceblue;
+    border-radius: 9999px;
+    font-size: 14px;
+    font-weight: bold;
+    border:none;
+    padding: 10px 20px;
+    margin: 5px;
+    align-items: center;
+    cursor: pointer;
+}
+button:hover{
+    box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+}
+.btn-secondary {
+    color:black;
+    background-color: rgb(223, 222, 222);
+}
+.btn-outline{
+    color: var(--primary);
+    background-color: white;
+    border: 1.5px solid var(--primary);
+
+}
+.btn-peligro{
+    background-color: var(--danger);
+}
+.btn-conIcono{
+       
+  align-items: center;          
+  gap: 8px;    
+}
+.btn-disabled{
+background-color: #f0f0f0;  
+  color: #8d8989;
+  cursor: not-allowed;      
+  opacity: 0.7;  
+  box-shadow: none;
+}
+/*   Section Productos */
+.product-card {
+  position: relative;
+   
+  border-radius: 12px;
+  
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+
+
+.product-card__media img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 12px;
+}
+
+.badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background-color: rgb(255, 172, 64);
+  color: black;
+  font-size: 0.9rem;
+  font-weight: bold;
+  padding: 5px 10px;
+  border-radius: 20px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.descripcion{
+    font-size: 0.8rem;
+    color: #939394;
+}
+.precios{
+   
+     display: flex;
+  align-items: center;   
+  gap: 0.5rem;          
+  margin: 1rem;
+}
+.product-card__price {
+    font-size: 1em;
+    font-weight: 900 ;
+    
+}
+.product-card__old-price{
+    font-size: 0.8em;
+    text-decoration: line-through;
+    color: #939394;
+}
+/* seccion rellenos*/
+.relleno{
+    
+    background: var(--panel);
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    margin: 10px;
+    }
