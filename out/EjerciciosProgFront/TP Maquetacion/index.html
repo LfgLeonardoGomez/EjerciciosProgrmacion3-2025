@@ -8,6 +8,8 @@
 
 </head>
 <body>
+
+<div class="wrapper">
     <header class="header">
             <div class="container">
                 <a class="titulo">
@@ -28,19 +30,56 @@
         <section class="section">
             <h2>1)Sistema de Botones</h2>
             <div class="botones">
-                <button class="btn btn-primary">Primary</button>
-                <button class="btn btn-secondary"></button>
-                <button class="btn btn-Outline">Outline</button>
-                <button class="btn btn-peligro">Peligro</button>
-                <button class="btn btn-conIcono">Con icono</button>
-                <button class="btn btn-disabled">Deshabilitado</button>
+                <button class="btn">Primary</button>
+                <button class="btn-secondary">Secundario</button>
+                <button class="btn-outline">Outline</button>
+                <button class="btn-peligro">Peligro</button>
+                <button class="btn-conIcono"><svg  xmlns="http://www.w3.org/2000/svg"  width="22"  height="22"  viewBox="0 0 24 24"  fill="none"  stroke="white"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-search"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" /><path d="M21 21l-6 -6" /></svg>Con icono</button>
+                <button class="btn-disabled">Deshabilitado</button>
             </div>
         </section>
         <section class="section">
             <h2>2)Tarjeta de Producto</h2>
+            <article class="product-card">
+                <div class="product-card__media"><img src="./images/zapatillas.webp" alt="imagen del producto"></div>
+                <div class="badge"><p>Nuevo</p></div>
+
+                <div class="product-card__info">
+                    <h3>Zapatillas Runner Pro</h3>
+                    <span class="descripcion">Amortiguacion ligera, malla respirable. Perfectas para entrenar todos los dias</span>
+                    <div class="precios">
+                        <span class="product-card__price">$ 24.999</span>
+                        <span class="product-card__old-price">$ 29.999</span>
+                    </div>
+                </div>
+                <div class="botones">
+                    <button class="btn">Comprar Ahora</button>
+                    <button class="btn-outline">+ Añadir</button>
+                </div>
+            </article>
+        </section>
+
+       
+    </main>
+    <footer>
+         <section clas="rellenos">
+            <article class="relleno" id="novedades">
+                <h3>Novedades</h3>
+                <p>Seccion de relleno para probar el menu</p>
+            </article>
+            <article class="relleno" id="ofertas">
+                    <h3>Ofertas</h3>
+                <p>Seccion de relleno para probar el menu</p>
+           
+            </article>
+            <article class="relleno" id="contacto">
+                        <h3>Contacto</h3>
+                        <p>Seccion de relleno para probar el menu</p>
+           
+            </article>
 
         </section>
-    </main>
-
+    </footer>
+</div>
 </body>
 </html>

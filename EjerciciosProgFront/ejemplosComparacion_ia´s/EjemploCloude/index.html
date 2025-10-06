@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Background Interactivo con Efecto Blur</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #3d3c3c;
+            color: #ffffff;
+            font-family: 'Arial', sans-serif;
+            overflow: hidden;
+            height: 100vh;
+            cursor: none;
+        }
+
+        .background-layer {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(49, 48, 48, 0.8) 0%, rgba(42, 42, 42, 1) 70%);
+            filter: blur(0px);
+            z-index: -2;
+        }
+
+        .blur-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .content {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .title {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            opacity: 0.9;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.7;
+            max-width: 600px;
+            line-height: 1.6;
+        }
+
+        .custom-cursor {
+            position: fixed;
+            width: 20px;
+            height: 20px;
+            background: radial-gradient(circle, rgba(18, 22, 250, 0.8) 0%, rgba(255, 255, 255, 0.2) 50%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 1000;
+            mix-blend-mode: screen;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+</head>
+<body>
+    <div class="background-layer"></div>
+    <canvas class="blur-canvas" id="blurCanvas"></canvas>
+    <div class="custom-cursor" id="customCursor"></div>
+    
+    <div class="content">
+        <h1 class="title">Background Interactivo</h1>
+    </div>
+
+    <script>
+        class MouseTrailEffect {
+            constructor() {
+                this.canvas = document.getElementById('blurCanvas');
+                this.ctx = this.canvas.getContext('2d');
+                this.customCursor = document.getElementById('customCursor');
+                this.trails = [];
+                this.maxTrails = 20;
+                
+                this.init();
+                this.animate();
+                this.bindEvents();
+            }
+
+            init() {
+                this.resizeCanvas();
+                window.addEventListener('resize', () => this.resizeCanvas());
+            }
+
+            resizeCanvas() {
+                this.canvas.width = window.innerWidth;
+                this.canvas.height = window.innerHeight;
+            }
+
+            bindEvents() {
+                document.addEventListener('mousemove', (e) => {
+                    this.addTrail(e.clientX, e.clientY);
+                    this.updateCursor(e.clientX, e.clientY);
+                });
+
+                document.addEventListener('mouseleave', () => {
+                    this.customCursor.style.opacity = '0';
+                });
+
+                document.addEventListener('mouseenter', () => {
+                    this.customCursor.style.opacity = '1';
+                });
+            }
+
+            addTrail(x, y) {
+                // Crear nuevo punto de rastro
+                this.trails.push({
+                    x: x,
+                    y: y,
+                    life: 1.0,
+                    size: Math.random() * 60 + 40
+                });
+
+                // Limitar el número de rastros
+                if (this.trails.length > this.maxTrails) {
+                    this.trails.shift();
+                }
+            }
+
+            updateCursor(x, y) {
+                this.customCursor.style.left = x + 'px';
+                this.customCursor.style.top = y + 'px';
+            }
+
+            animate() {
+                // Limpiar canvas
+                this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+
+                // Actualizar y dibujar rastros
+                for (let i = this.trails.length - 1; i >= 0; i--) {
+                    const trail = this.trails[i];
+                    
+                    // Reducir vida del rastro
+                    trail.life -= 0.05;
+                    
+                    if (trail.life <= 0) {
+                        this.trails.splice(i, 1);
+                        continue;
+                    }
+
+                    // Calcular opacidad y tamaño basado en la vida
+                    const opacity = trail.life * 0.3;
+                    const currentSize = trail.size * trail.life;
+
+                    // Crear gradiente radial para el efecto de aclarado
+                    const gradient = this.ctx.createRadialGradient(
+                        trail.x, trail.y, 0,
+                        trail.x, trail.y, currentSize
+                    );
+                    
+                    gradient.addColorStop(0, `rgba(120, 120, 120, ${opacity})`);
+                    gradient.addColorStop(0.4, `rgba(80, 80, 80, ${opacity * 0.6})`);
+                    gradient.addColorStop(1, `rgba(60, 60, 60, 0)`);
+
+                    // Configurar blend mode para crear el efecto de aclarado
+                    this.ctx.globalCompositeOperation = 'screen';
+                    this.ctx.fillStyle = gradient;
+                    
+                    // Dibujar círculo del rastro
+                    this.ctx.beginPath();
+                    this.ctx.arc(trail.x, trail.y, currentSize, 0, Math.PI * 2);
+                    this.ctx.fill();
+                }
+
+                // Restaurar blend mode normal
+                this.ctx.globalCompositeOperation = 'source-over';
+
+                requestAnimationFrame(() => this.animate());
+            }
+        }
+
+        // Inicializar el efecto cuando la página se carga
+        document.addEventListener('DOMContentLoaded', () => {
+            new MouseTrailEffect();
+        });
+
+        // Efecto adicional para el cursor personalizado
+        document.addEventListener('mousemove', (e) => {
+            const cursor = document.getElementById('customCursor');
+            const speed = Math.sqrt(
+                Math.pow(e.movementX || 0, 2) + Math.pow(e.movementY || 0, 2)
+            );
+            
+            // Hacer el cursor más grande cuando se mueve rápido
+            const scale = Math.min(1 + speed * 0.02, 2);
+            cursor.style.transform = `translate(-50%, -50%) scale(${scale})`;
+        });
+    </script>
+</body>
+</html>

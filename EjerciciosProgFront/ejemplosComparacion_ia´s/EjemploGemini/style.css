@@ -1,0 +1,26 @@
+body {
+    margin: 0;
+    padding: 0;
+    /* El color de fondo se controla ahora desde el canvas */
+    background-color: #1a1a1a; /* Gris oscuro, casi negro */
+    overflow: hidden; /* Evita barras de scroll */
+}
+
+#smoke-canvas {
+    position: fixed; /* Lo fija como fondo */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Lo pone detrás de todo el contenido */
+}
+
+/* Estilo para el contenido de la web (opcional) */
+.content {
+    position: relative;
+    z-index: 1;
+    color: white;
+    text-align: center;
+    padding-top: 50px;
+    font-family: sans-serif;
+}

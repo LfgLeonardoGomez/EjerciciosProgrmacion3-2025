@@ -1,0 +1,12 @@
+
+.tituloResaltado{
+    text-transform: uppercase;
+    color :rgb(22, 22, 146);
+    background-color: rgb(162, 227, 230);
+    font-style: initial;
+    border-radius: 25px;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+
+}

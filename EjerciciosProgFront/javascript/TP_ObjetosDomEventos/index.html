@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ManipulacionDOM</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1 id = "tituloH1">Hola, soy un titulo H1</h1>
+    
+    <ul id = "lista">
+        <li>productos</li>
+        <li>precios</li>
+        <li>nosotros</li>
+    </ul>
+
+    <form id = "formulario">
+    <input class = "input" id = "inputID" type="text">
+    <button class = "btn" id="btn-1">Soy un Boton</button>
+    </form>
+    <label for="seleccionar">Elije tu lenguaje de programacion: </label>
+    <select name="lenguajes" id="seleccionar">
+        <option value="none" selected disabled>Selecciona un lenguaje</option>
+        <option value="Python">Python</option>
+        <option value="Java">Java</option>
+        <option value="C#">C#</option>
+        <option value="Javascript">Javascript</option>
+        <option value="PHP">PHP</option>
+    </select>
+    <div id = "eleccion"></div>
+    <script src = "script.js"></script>
+</body>
+</html>
