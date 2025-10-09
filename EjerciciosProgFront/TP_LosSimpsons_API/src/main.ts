@@ -69,10 +69,16 @@ function createCharacter(character : ipersonaje) : HTMLElement{
             return card
 }
 
+function limpiarContenedorCharacters(){
+    const contenedor = document.getElementById("contenedor")
+    //  if(contenedor) {
+    //     contenedor.innerHTML = ""
+    //    }
+    contenedor?.replaceChildren()
+}
+
 const renderCharacters = (characters : ipersonaje[])=>{
     const contenedor = document.getElementById("contenedor")
-        
-
     characters.forEach(element =>{
             const card = createCharacter(element)
             contenedor?.appendChild(card)
@@ -80,8 +86,10 @@ const renderCharacters = (characters : ipersonaje[])=>{
 }
 const fetchCharacter = async()=> {
     try{
+        limpiarContenedorCharacters()
         showLoading()
         await sleep(4000)
+        
         const res = await fetch(url)
         if(!res.ok){mostrarError();
             console.error()

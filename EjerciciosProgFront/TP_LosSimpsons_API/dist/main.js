@@ -46,6 +46,13 @@ function createCharacter(character) {
             `;
     return card;
 }
+function limpiarContenedorCharacters() {
+    const contenedor = document.getElementById("contenedor");
+    //  if(contenedor) {
+    //     contenedor.innerHTML = ""
+    //    }
+    contenedor?.replaceChildren();
+}
 const renderCharacters = (characters) => {
     const contenedor = document.getElementById("contenedor");
     characters.forEach(element => {
@@ -55,6 +62,7 @@ const renderCharacters = (characters) => {
 };
 const fetchCharacter = async () => {
     try {
+        limpiarContenedorCharacters();
         showLoading();
         await sleep(4000);
         const res = await fetch(url);
