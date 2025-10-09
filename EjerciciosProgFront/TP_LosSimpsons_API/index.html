@@ -9,18 +9,38 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
 </head>
-<body>
+<body id = "body">
     <header class = "header">
         <h1 class="titulo">Los Simpsons API</h1>
-        <button class = "boton_cargar"><img class = "icono" src="./images/thesimpson_108050.svg" alt="imagencita">Cargar Personajes</button>
+        <h3 class = "subtitulo">Explora los personajes de los Simpsons con Typescript</h3>
     </header>
-   
-    <section class = "loading"></section>
-    <div class = "error"></div>
+
+    <section class = "seccion_boton">
+        <button id = "boton_cargar" class = "boton_cargar"><img class = "icono" src="./images/thesimpson_108050.svg" alt="imagencita">Cargar Personajes</button>
+    </section>
+
+        <!-- Rosquilla loading -->
+    <section class="seccion_loading_hidden" id = "seccion_loading">
+        <img class = "imagen_rosquilla" src="./images/pngwing.com.png" alt="imagen Rosquilla">
+        <div class = "loading_titulo">Cargando personajes...</div>
+    </section>
+        <!-- Tarjeta de error-->
+    <section class = "contenedor_error_hidden" id = "contenedor_error">
+        <div class = "tarjeta_error">
+            <img class = "imagen_error" src="images/homero_doh.png" alt="imagen de error">
+            <span clase = "mensaje_error">Doh! No pudimos cargar los personajes</span>
+            
+        </div>
+    </section>
+
     <div class = "contenedor" id = "contenedor"></div>
 
 
-    <footer class = "footer"></footer>
+    <footer>
+        <section class = "footer">
+        <h3 class = "infoApi">API: <a class = "infoApi" href="https://thesimpsonsapi.com/api/characters">Los simpsons Quote API</a></h3>
+        </section>
+    </footer>
     <script type = "module" src="./dist/main.js"></script>
 </body>
 </html>
